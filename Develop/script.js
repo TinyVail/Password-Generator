@@ -6,7 +6,7 @@ var generateBtn = document.querySelector("#generate").addEventListener("click", 
 var specialCharacters = "%!&,*-+./<>?~";
 var numbers = "0123456789";
 var alphaLower = "abcdefghijklmnopqrstuvwxyz";
-var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // declare the future variables i'll use
 var confirmLength = "";
@@ -35,6 +35,8 @@ function generatePassword() {
   var confirmalphaLower = confirm("Click OK if you would like to include lowercase letters");
   var confirmalphaUpper = confirm("Click OK if you would like to include uppercase letters");
 
+  //if they dont choose anything display an error message
+
   while(confirmspecialCharacters === false && confirmNumbers === false && confirmalphaLower === false && confirmalphaUpper === false) {
     alert("You must choose at least one addition to your password! Try again please!");
     var confirmspecialCharacters = confirm("Click OK if you want to include special characters");
@@ -42,6 +44,11 @@ function generatePassword() {
     var confirmalphaLower = confirm("Click OK if you would like to include lowercase letters");
     var confirmalphaUpper = confirm("Click OK if you would like to include uppercase letters");
   }
+
+  // will try using concatention to string all items together inside of the "password Content array"
+  var passwordContent = []
+
+  
 
 
 }
