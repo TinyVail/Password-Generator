@@ -3,9 +3,9 @@ var generateBtn = document.querySelector("#generate").addEventListener("click", 
 
 //Listing the nums and characters arrays
 
-var specialCharacters = ["%", "!", "&", ",", "*", "-", "+", ".", "/", "<", ">", "?","~"];
-var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var specialCharacters = "%!&,*-+./<>?~";
+var numbers = "0123456789";
+var alphaLower = "abcdefghijklmnopqrstuvwxyz";
 var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 // declare the future variables i'll use
@@ -27,6 +27,23 @@ function generatePassword() {
   }
 
   alert(`Your password will have ${confirmLength} characters`);
+
+  // ask them what they would like to include in their password
+
+  var confirmspecialCharacters = confirm("Click OK if you want to include special characters");
+  var confirmNumbers = confirm("Click OK if you would like to include numbers");
+  var confirmalphaLower = confirm("Click OK if you would like to include lowercase letters");
+  var confirmalphaUpper = confirm("Click OK if you would like to include uppercase letters");
+
+  while(confirmspecialCharacters === false && confirmNumbers === false && confirmalphaLower === false && confirmalphaUpper === false) {
+    alert("You must choose at least one addition to your password! Try again please!");
+    var confirmspecialCharacters = confirm("Click OK if you want to include special characters");
+    var confirmNumbers = confirm("Click OK if you would like to include numbers");
+    var confirmalphaLower = confirm("Click OK if you would like to include lowercase letters");
+    var confirmalphaUpper = confirm("Click OK if you would like to include uppercase letters");
+  }
+
+
 }
 
 // Write password to the #password input
