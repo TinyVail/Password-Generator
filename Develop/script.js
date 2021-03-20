@@ -16,6 +16,19 @@ var confirmalphaUpper;
 var confirmNumbers;
 
 
+// using the preset function to generate password with prompt for characters, nums, specials etc...
+
+function generatePassword() {
+  var confirmLength = (prompt("How many characters would you like in you password?"));
+
+  while (confirmLength <= 7 || confirmLength >= 129) {
+    alert("Your Password must be between 8-128 characters!");
+    var confirmLength = (prompt("How many characters would you like in you password?"));
+  }
+
+  alert('Your password will have ${confirmLength} characters');
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
