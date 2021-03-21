@@ -37,7 +37,7 @@ function generatePassword() {
 
   //if they dont choose anything display an error message
 
-  while(confirmspecialCharacters === false && confirmNumbers === false && confirmalphaLower === false && confirmalphaUpper === false) {
+  while (confirmspecialCharacters === false && confirmNumbers === false && confirmalphaLower === false && confirmalphaUpper === false) {
     alert("You must choose at least one addition to your password! Try again please!");
     var confirmspecialCharacters = confirm("Click OK if you want to include special characters");
     var confirmNumbers = confirm("Click OK if you would like to include numbers");
@@ -45,13 +45,48 @@ function generatePassword() {
     var confirmalphaUpper = confirm("Click OK if you would like to include uppercase letters");
   }
 
-  // will try using concatention to string all items together inside of the "password Content array"
-  var passwordContent = []
+  // adding the chosen parameters to the password
+  var passwordContent = "";
 
-  
+  if (confirmNumbers) {
+    passwordContent = passwordContent + numbers;
+    // passwordContent += numbers;
+  }
 
+  if (confirmspecialCharacters) {
+    passwordContent = passwordContent + specialCharacters;
+  }
 
+  if (confirmalphaLower) {
+    passwordContent = passwordContent + alphaLower;
+  }
+
+  if (confirmalphaUpper) {
+    passwordContent = passwordContent + alphaUpper;
+  }
+
+  var createdPassword = createpassword(passwordContent, confirmLength);
+
+  return createdPassword;
 }
+
+// function functionName(functionArg1, functionArg2) {
+
+// }
+
+function createpassword(passwordContent, confirmLength) {
+  var password = "";
+  var index;
+
+  for (var counter = 0; counter < confirmLength; counter++) {
+    var index = Math.floor(Math.random() * passwordContent.length);
+    var randomizedChar = passwordContent.charAt(index);
+    password = password + randomizedChar;
+  }
+  return password;
+}
+
+
 
 // Write password to the #password input
 function writePassword() {
